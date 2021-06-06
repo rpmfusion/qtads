@@ -1,0 +1,19 @@
+Author: František Dvořák <valtri@civ.zcu.cz>
+Date:   Mon Dec 1 00:12:40 2014 +0100
+
+    Disable updates check. It is not needed for Fedora.
+
+diff --git a/src/syswingroup.cc b/src/syswingroup.cc
+index 7438fa3..d5fbd47 100644
+--- a/src/syswingroup.cc
++++ b/src/syswingroup.cc
+@@ -236,6 +236,9 @@ CHtmlSysWinGroupQt::fAskRestartGameDialog()
+ void
+ CHtmlSysWinGroupQt::fCheckForUpdates()
+ {
++    // Disable updates when using in Fedora
++    return;
++
+     // If there's already an update check in progress, don't do anything.
+     if (this->fNetManager != 0) {
+         return;
